@@ -53,7 +53,7 @@ const webpackConfig: Configuration = {
     }
   },
 
-  devtool: isProduction && false ? false : 'source-map',
+  devtool: isProduction ? false : 'source-map',
 
   resolve: {
     extensions: ['.ts', '.js', '.json', '.css', '.svg'],
