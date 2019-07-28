@@ -1,0 +1,24 @@
+#! /bin/bash
+
+clear
+
+if [[ ! -d dist ]]; then
+  ./_build_js_bundle
+fi
+
+node -e '''
+  const ghpages = require("gh-pages");
+
+  const GITHUB_USER_NAME = "MagnusBrzenk";
+  const GITHUB_REPO_NAME = "threejs-typescript-boilerplate";
+
+  console.log("DEPLOYING...");
+
+  ghpages.publish("dist", function (err) {
+    if (!!err) {
+      console.log(`OH NO! STH WENT WRONG :(`, err);
+      process.exit(1);
+    }
+    console.log(`DEPLOYED TO: https://${GITHUB_USER_NAME}.github.io/${GITHUB_REPO_NAME}/`);
+  })
+'''
