@@ -112,9 +112,11 @@
   "scripts": {
     "dev": "bash _build_js_bundle --dev",
     "build": "bash _build_js_bundle",
-    "analyze" : "npm run build && node_modules/.bin/webpack-bundle-analyzer compilation-stats.json"
+    "analyze": "npm run build && node_modules/.bin/webpack-bundle-analyzer compilation-stats.json"
   },
   "resolutions": {
-    "@types/webpack": "^4.4.32"
+    "@types/webpack": "^4.4.32",
+    "open": ">=6.0.0",
+    "axios": ">=0.18.1"
   }
 }
