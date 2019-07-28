@@ -1,0 +1,23 @@
+#! /bin/bash
+
+# Optional: cleamn out threeExtras dir
+# rm -rf src/threeJsScaffold/threeExtras/*
+
+# Copy all threeJs 'extras' from package to our src code
+clear
+echo """
+  Copying extras
+"""
+cp -fr ./node_modules/three/examples/jsm/* src/threeJsScaffold/threeExtras/
+
+# Go through copied '.d.ts' and '.js' files and alter import paths
+echo """
+  Updating file imports
+"""
+find_pattern='\.\.\/\.\.\/\.\.\/src\/Three'
+replace_pattern='three'
+egrep -lRZ $find_pattern src/threeJsScaffold | xargs -I FOUNDFILE sed -i '' "s/${find_pattern}/${replace_pattern}/g" FOUNDFILE
+
+find_pattern='\.\.\/\.\.\/\.\.\/build\/three.module.js'
+replace_pattern='three'
+egrep -lRZ $find_pattern src/threeJsScaffold | xargs -I FOUNDFILE sed -i '' "s/${find_pattern}/${replace_pattern}/g" FOUNDFILE

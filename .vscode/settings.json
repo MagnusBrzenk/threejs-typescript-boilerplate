@@ -1,0 +1,32 @@
+{
+    "php.validate.executablePath": "/usr/local/bin/php",
+    "php.validate.run": "onType",
+    // "phpSniffer.run": "onType",
+    // "phpcs.enable": false,
+    "cSpell.words": [
+        "file",
+        "symlinked",
+        "yyyymmdd"
+    ],
+    //////////
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "files.associations": {
+        "*.html": "html"
+    },
+    "prettier.htmlWhitespaceSensitivity": "ignore",
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.formatOnSave": false,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[scss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "tslint.configFile": "tslint.json",
+    "tslint.enable": true,
+}
