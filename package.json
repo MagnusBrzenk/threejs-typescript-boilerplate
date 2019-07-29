@@ -115,8 +115,6 @@
     "analyze": "npm run build && node_modules/.bin/webpack-bundle-analyzer compilation-stats.json"
   },
   "resolutions": {
-    "@types/webpack": "^4.4.32",
-    "open": ">=6.0.0",
-    "axios": ">=0.18.1"
+    "@types/webpack": "^4.4.32"
   }
 }
