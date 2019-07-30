@@ -47,10 +47,14 @@ const webpackConfig: Configuration = {
     hot: true,
     contentBase: [path.resolve(__dirname), path.resolve(__dirname, 'dist')],
     publicPath: `http://localhost:${devPort}/`,
-    port: 3000,
+    port: parseInt(devPort, 10),
     historyApiFallback: {
       disableDotRule: true
-    }
+    },
+    watchOptions: {
+      poll: false
+    },
+    inline: true
   },
 
   devtool: isProduction ? false : 'source-map',
