@@ -3,7 +3,7 @@ import { ISceneEntity, SceneEntityBase } from '../../ThreeJsScaffold/scene.entit
 import { ISceneManager } from '../../ThreeJsScaffold/scene.manager';
 
 export class DirectionalLight extends SceneEntityBase implements ISceneEntity {
-  constructor(parentSceneManager: ISceneManager) {
+  constructor(parentSceneManager: ISceneManager, private _isHelpersEnabled = false) {
     super(parentSceneManager);
   }
 
@@ -22,7 +22,7 @@ export class DirectionalLight extends SceneEntityBase implements ISceneEntity {
     const helper1 = new THREE.DirectionalLightHelper(light1, 5);
 
     this._sceneEntityGroup.add(light1);
-    this._sceneEntityGroup.add(helper1);
+    if (!!this._isHelpersEnabled) this._sceneEntityGroup.add(helper1);
 
     // Finish
     this._isSceneEntityReady = true;

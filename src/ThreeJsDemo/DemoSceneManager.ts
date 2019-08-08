@@ -17,7 +17,7 @@ export class DemoSceneManager extends SceneManagerBase implements ISceneManager 
       //
       new DirectionalLight(this),
       new MiscHelpers(this),
-      // new SimpleLight(this),
+      new SimpleLight(this),
       // new Square(this, 1),
       new Shapes(this, 1)
     ];

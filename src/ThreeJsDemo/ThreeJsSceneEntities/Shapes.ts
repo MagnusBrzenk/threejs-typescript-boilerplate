@@ -13,17 +13,23 @@ export class Shapes extends SceneEntityBase implements ISceneEntity {
 
     const objHandle: THREE.Object3D | undefined = undefined;
 
-    MTLOBJLoader('images/play1.mtl', 'images/play1.obj', 10, objHandle, (obj: THREE.Object3D) => {
-      this._sceneEntityGroup.add(obj);
-      this._isSceneEntityReady = true;
-      this._parentSceneManager.attemptStart();
-    });
+    MTLOBJLoader(
+      'images/monster-confrontation2.mtl',
+      'images/monster-confrontation2.obj',
+      10,
+      (obj: THREE.Object3D) => {
+        obj.rotateX(Math.PI / 2);
+        this._sceneEntityGroup.add(obj);
+        this._isSceneEntityReady = true;
+        this._parentSceneManager.attemptStart();
+      }
+    );
   };
 
   update = (time: number) => {
-    // this._sceneEntityGroup.children.forEach(el => {
-    //   el.rotation.x += 0.01;
-    //   el.rotation.y += 0.02;
-    // });
+    this._sceneEntityGroup.children.forEach(el => {
+      // el.rotation.x += 0.01;
+      el.rotation.y += 0.02;
+    });
   };
 }

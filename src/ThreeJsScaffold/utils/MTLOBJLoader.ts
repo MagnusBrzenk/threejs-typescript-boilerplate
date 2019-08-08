@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { MTLLoader } from './MTLLoader';
 import { OBJLoader } from './OBJLoader';
 
+// Augment THREE with MTL and OBJ loaders
 MTLLoader(THREE);
 OBJLoader(THREE);
 
@@ -12,8 +13,6 @@ export function MTLOBJLoader(
   mtlUrl: string,
   objUrl: string,
   scaledRadius: number,
-  objectHandle: THREE.Object3D | undefined,
-  // group: THREE.Group | undefined
   cbOnReady: (obj: THREE.Object3D) => void
 ): void {
   //
@@ -30,11 +29,11 @@ export function MTLOBJLoader(
     objLoader.setMaterials(materials);
     objLoader.load(
       objUrl,
-      (object: any) => {
+      (object: THREE.Object3D) => {
         // Need to iterate through all meshes
         let biggestSphereRadius: number = Math.pow(10, -10);
 
-        object.traverse(function(child: any) {
+        object.traverse((child: any) => {
           console.log('A child!');
 
           if (child instanceof THREE.Mesh) {
@@ -60,26 +59,14 @@ export function MTLOBJLoader(
         boundingBox.getCenter(object.position);
         object.position.multiplyScalar(-1);
 
-        // const boundingSphere = new THREE.BoundingBoxHelper(object);
-        // const x = boundingSphere.geometry.boundingSphere.radius;
-
-        // const x = boundingBox.max;
-
-        console.log('x vs radius', boundingBox.max.x, boundingBox.min.x, biggestSphereRadius);
-
-        // scene.add(object);
-        console.log('THREE.OBJLoader Object: ', object);
-        console.log('THREE.OBJLoader Object: ', object);
-        // group.add(object);
-        objectHandle = object;
+        // Signal object readiness
         cbOnReady(object);
-        // if (!!group) group.add(objectHandle!);
       },
-      // called when loading is in progresses
+      // Called when loading is in progresses
       (xhr: any) => {
         console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
       },
-      // called when loading has errors
+      // Called when loading has errors
       (error: any) => {
         console.log('An error happened');
       }
