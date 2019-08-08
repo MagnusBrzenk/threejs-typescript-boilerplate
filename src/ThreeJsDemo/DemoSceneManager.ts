@@ -2,6 +2,8 @@ import { SceneManagerBase, ISceneManager } from '../ThreeJsScaffold/scene.manage
 import { MiscHelpers } from './ThreeJsSceneEntities/Helpers';
 import { DirectionalLight } from './ThreeJsSceneEntities/DirectionalLight';
 import { Square } from './ThreeJsSceneEntities/Square';
+import { Shapes } from './ThreeJsSceneEntities/shapes';
+import { SimpleLight } from './ThreeJsSceneEntities/SimpleLight';
 
 export class DemoSceneManager extends SceneManagerBase implements ISceneManager {
   constructor(container: HTMLElement) {
@@ -16,7 +18,8 @@ export class DemoSceneManager extends SceneManagerBase implements ISceneManager 
       new DirectionalLight(this),
       new MiscHelpers(this),
       // new SimpleLight(this),
-      new Square(this, 1)
+      // new Square(this, 1),
+      new Shapes(this, 1)
     ];
 
     // Set this as entities parent

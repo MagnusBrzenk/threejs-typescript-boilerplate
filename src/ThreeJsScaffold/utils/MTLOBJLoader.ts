@@ -13,7 +13,8 @@ export function MTLOBJLoader(
   objUrl: string,
   scaledRadius: number,
   objectHandle: THREE.Object3D | undefined,
-  group: THREE.Group | undefined
+  // group: THREE.Group | undefined
+  cbOnReady: (obj: THREE.Object3D) => void
 ): void {
   //
 
@@ -71,7 +72,8 @@ export function MTLOBJLoader(
         console.log('THREE.OBJLoader Object: ', object);
         // group.add(object);
         objectHandle = object;
-        if (!!group) group.add(objectHandle!);
+        cbOnReady(object);
+        // if (!!group) group.add(objectHandle!);
       },
       // called when loading is in progresses
       (xhr: any) => {
