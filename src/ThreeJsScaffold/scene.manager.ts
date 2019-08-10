@@ -4,7 +4,8 @@ import { ISceneEntity } from './scene.entity';
 
 export class SceneManagerBase {
   // Essential Properties for a threeJs production
-  protected _scene: THREE.Scene = new THREE.Scene();
+  // protected _scene: THREE.Scene = new THREE.Scene();
+  public _scene: THREE.Scene = new THREE.Scene();
   protected _renderer: THREE.WebGLRenderer;
   protected _canvas: HTMLCanvasElement;
   protected _camera: THREE.PerspectiveCamera;

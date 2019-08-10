@@ -15,9 +15,9 @@ export class DemoSceneManager extends SceneManagerBase implements ISceneManager 
     // Create entities
     this._sceneEntities = [
       //
-      new DirectionalLight(this),
-      new MiscHelpers(this),
-      new SimpleLight(this),
+      // new DirectionalLight(this),
+      // new MiscHelpers(this),
+      // new SimpleLight(this),
       // new Square(this, 1),
       new Shapes(this, 1)
     ];
