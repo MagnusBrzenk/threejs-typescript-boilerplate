@@ -1,3 +1,4 @@
+import * as THREE from 'three';
 import { SceneManagerBase, ISceneManager } from '../ThreeJsScaffold/scene.manager';
 import { MiscHelpers } from './ThreeJsSceneEntities/Helpers';
 import { DirectionalLight } from './ThreeJsSceneEntities/DirectionalLight';
@@ -12,6 +13,8 @@ export class DemoSceneManager extends SceneManagerBase implements ISceneManager 
     // Style canvas
     container.style.backgroundColor = 'rgba(0,0,0,1)';
 
+    this._camera.position.set(1970, 1970, 1970);
+
     // Create entities
     this._sceneEntities = [
       //
@@ -24,9 +27,12 @@ export class DemoSceneManager extends SceneManagerBase implements ISceneManager 
 
     // Set this as entities parent
     this._sceneEntities.forEach(el => el.init());
+
+    this._updateCamera = this.updateCamera;
   }
 
   updateCamera = (time: number) => {
     //
+    // console.log(this._camera.position.toArray());
   };
 }

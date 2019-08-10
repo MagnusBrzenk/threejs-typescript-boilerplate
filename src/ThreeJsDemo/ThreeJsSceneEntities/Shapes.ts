@@ -82,7 +82,7 @@ export class Shapes extends SceneEntityBase implements ISceneEntity {
   update = (time: number) => {
     this._sceneEntityGroup.children.forEach(el => {
       // el.rotation.x += 0.01;
-      // el.rotation.y += 0.02;
+      el.rotation.y += 0.02;
     });
   };
 }

@@ -9,7 +9,9 @@ export class MiscHelpers extends SceneEntityBase implements ISceneEntity {
 
   init = () => {
     const axesHelper = new THREE.AxesHelper(500);
-    this._sceneEntityGroup.add(axesHelper);
+    const xxxHelper = new THREE.AxesHelper(500);
+    // this._sceneEntityGroup.add(axesHelper);
+    this._sceneEntityGroup.add(xxxHelper);
 
     // Finish
     this._isSceneEntityReady = true;
